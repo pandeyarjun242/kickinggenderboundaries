@@ -25,7 +25,7 @@ SECRET_KEY = '1(7o$84ezq^&o*46u#p)5_tf!)8&ru5tmgq!-vuf6zj-=5rg!f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -78,11 +78,11 @@ WSGI_APPLICATION = 'transRegister.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'producthuntdb',
-        'USER': 'postgres',
+        'NAME': 'kicking',
+        'USER': 'arjun',
         'PASSWORD':'arjun2003',
         'HOST': 'localhost',
-        'PORT':'5432',
+        'PORT':'',
     }
 }
 
