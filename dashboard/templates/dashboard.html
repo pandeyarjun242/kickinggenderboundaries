@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+  .jumbotron {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin-bottom: 0;
+    background-color: #fff;
+  }
+  @media (min-width: 768px) {
+    .jumbotron {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  .jumbotron p:last-child {
+    margin-bottom: 0;
+  }
+
+  .jumbotron h1 {
+    font-weight: 300;
+  }
+  h1{
+    color:black;
+    margin: 25px 0;
+  }
+
+  .jumbotron .container {
+    max-width: 40rem;
+  }
+  .new{
+    width:70%;
+    margin: 0 auto;
+  }
+</style>
+
+<main role="main">
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 style="color:black;">Training Centers</h1>
+      <p class="lead text-muted">You can now select any particular training center near your location and start your journey in becoming a football star. Get in contact with BBFS coaches or us and we can advise timings and further details.</p>
+      <p>
+        <a href="#" class="btn btn-primary my-2">Main call to action</a>
+        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+      </p>
+    </div>
+  </section>
+
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <h1 class="text-center">Delhi NCR</h1>
+      <div class="row">
+        {% for locations in locations.all %}
+        {% if locations.city == 1 %}
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img class="bd-placeholder-img card-img-top new" width="80%" height="225" src="{{ locations.image.url }}">
+            <div class="card-body">
+              <p class="card-text" style="color:black;">{{locations.address}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="https://www.bbfootballschools.com/regular_delhi.php?pid=3"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+                </div>
+                <small class="text-muted">Delhi</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+      <h1 class="text-center">Mumbai</h1>
+      <div class="row">
+        {% for locations in locations.all %}
+        {% if locations.city == 2 %}
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img class="bd-placeholder-img card-img-top new" width="80%" height="225" src="{{ locations.image.url }}">
+            <div class="card-body">
+              <p class="card-text" style="color:black;">{{locations.address}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="https://www.bbfootballschools.com/regular_mumbai.php?pid=3"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+                </div>
+                <small class="text-muted">Mumbai</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <h1 class="text-center">Chandigarh</h1>
+    <div class="row">
+      {% for locations in locations.all %}
+      {% if locations.city == 4 %}
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img class="bd-placeholder-img card-img-top new" width="80%" height="225" src="{{ locations.image.url }}">
+          <div class="card-body">
+            <p class="card-text" style="color:black;">{{locations.address}}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <a href="https://www.bbfootballschools.com/regular_chandigarh.php?pid=3"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+              </div>
+              <small class="text-muted">Chandigarh</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+  </div>
+  <h1 class="text-center">Bengaluru</h1>
+  <div class="row">
+    {% for locations in locations.all %}
+    {% if locations.city == 3 %}
+    <div class="col-md-4">
+      <div class="card mb-4 shadow-sm">
+        <img class="bd-placeholder-img card-img-top new" width="80%" height="225" src="{{ locations.image.url }}">
+        <div class="card-body">
+          <p class="card-text" style="color:black;">{{locations.address}}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <a href="https://www.bbfootballschools.com/regular_bengaluru.php?pid=3"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+            </div>
+            <small class="text-muted">Bengaluru</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+  </div>
+
+</div>
+</main>
+
+{% endblock %}

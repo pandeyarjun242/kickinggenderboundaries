@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+  .container {
+  max-width: 960px;
+}
+.new{
+  margin-top:-7%;
+}
+form{
+  margin-top:-25px;
+  margin-right:-25px;
+}
+.strong{
+  color: black !important;
+}
+textarea{
+  height:20vh !important;
+}
+input, textarea{display:block;width:100%;height:calc(1.5em + .75rem + 2px);padding:.375rem .75rem;font-size:1rem;font-weight:400;line-height:1.5;color:#495057;background-color:#fff;background-clip:padding-box;border:1px solid #ced4da;border-radius:.25rem;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out}
+.lh-condensed { line-height: 1.25; }
+</style>
+
+<div class="container new">
+  <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+    <h2>Contact Form</h2>
+    <h5>If you wish to participate at any exhibition match you are welcome to sign yourself up and we will get in touch with you!
+<strong class="strong"> Input the required details and the city at which you would like to train or play an exhibition match</strong> </h5>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 order-md-2 mb-4">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">Your opportunities</span>
+        <span class="badge badge-secondary badge-pill"></span>
+      </h4>
+      <ul class="list-group mb-3">
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">Exhibition Matches</h6>
+            <small class="text-muted">National Participation</small>
+          </div>
+          <span class="text-muted">#PROUD</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">Free Training</h6>
+            <small class="text-muted">@BBFS Nationally</small>
+          </div>
+          <span class="text-muted">#BLEEDBLUE</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between bg-light">
+          <div class="text-success">
+            <h6 class="my-0">CONTACT TODAY</h6>
+            <small>REGISTER FOR MORE</small>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-8 order-md-1">
+    <form method="post">
+        <div class="col-md-6 mb-3">
+          {% csrf_token %}
+          {{ form.as_p }}
+
+      <div class="form-actions">
+        <label class="custom-control-label" for="same-address">I confirm that I identify as trans*.</label>
+        <input type="checkbox" class="custom-control-input" id="same-address">
+        <button type="submit" class="btn btn-primary">Send</button>
+      </div>
+      </div>
+
+    </form>
+    </div>
+  </div>
+  </div>
+
+{% endblock %}

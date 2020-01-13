@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+  form{
+    text-align:center;
+  }
+  form label{
+    width:100%;
+    text-align:center;
+  }
+  h1{
+    color:black;
+    margin: 25px 0;
+  }
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: 400;
+}
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+p{
+  color:black;
+}
+</style>
+
+<h1 class="text-center">Upcoming Events</h1>
+
+  <div class="container marketing">
+
+    <!-- Three columns of text below the carousel -->
+
+    <div class="row">
+      {% for events in events.all%}
+      {% if events.past_events == 2 %}
+        <div class="col-lg-4">
+        <img class="bd-placeholder-img rounded-circle" width="240" height="240" src = "{{events.image.url}}">
+        <h2>{{events.city}}</h2>
+        <p>{{events.pub_date}}</p>
+        <p><a class="btn btn-secondary" href="https://scoutme.in/media" role="button">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      {% endif %}
+      {% endfor %}
+    </div><!-- /.row -->
+    <h1 class="text-center">Past Events</h1>
+    <div class="row">
+      {% for events in events.all%}
+      {% if events.past_events == 1 %}
+        <div class="col-lg-4">
+        <img class="bd-placeholder-img rounded-circle" width="240" height="240" src = "{{events.image.url}}">
+        <h2>{{events.city}}</h2>
+        <p>{{events.pub_date}}</p>
+        <p><a class="btn btn-secondary" href="https://scoutme.in/media" role="button">View details</a></p>
+      </div><!-- /.col-lg-4 -->
+      {% endif %}
+      {% endfor %}
+    </div><!-- /.row -->
+
+  </div>
+
+{% endblock %}
