@@ -98,6 +98,7 @@ h1,p{
               <li><a href="{% url 'dashboard'%}" class="text-white">Dashboard</a></li>
               <a href="javascript:{document.getElementById('logout').submit()}" class="text-white"><li style="color:white;">Logout</li></a>
               <li><a href="{% url 'contact' %}" class="text-white">Register!!</a></li>
+              <li><a href="{% url 'events'%}" class="text-white">Events</a></li>
               <form id = "logout" method="POST" action=" {% url 'logout'%} ">
                 {% csrf_token %}
                 <input type="hidden">
@@ -105,6 +106,7 @@ h1,p{
               {% else %}
               <li><a href="{% url 'signup' %}" class="text-white">SignUp</a></li>
               <li><a href="{% url 'login' %}" class="text-white">Login</a></li>
+              <li><a href="{% url 'events'%}" class="text-white">Events</a></li>
               <li><a href="#" class="text-white">Contact Us</a></li>
               {% endif %}
             </ul>
