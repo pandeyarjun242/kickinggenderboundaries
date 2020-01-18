@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Locations(models.Model):
@@ -25,3 +25,8 @@ class Events(models.Model):
         return self.pub_date.strftime('%b %e %Y')
     def __str__(self):
        return self.city
+class Response(models.Model):
+    name = models.ForeignKey(User, on_delete = models.CASCADE)
+    experience = models.TextField()
+    email = models.EmailField()
+    city = models.TextField()

@@ -19,17 +19,12 @@ def events(request):
     return render(request, 'events.html', {'events':events})
 def contact(request):
     if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            name = form.cleaned_data['name']
-            email = form.cleaned_data['email']
-            city = form.cleaned_data['city']
-            Football_Experience = form.cleaned_data['Football_Experience']
-            try:
-                send_mail(name, Football_Experience, email, ['apandey@jpischool.com'])
-            except BadHeaderError:
-                return HttpResponse('Invalid header found.')
-            return redirect('home')
+        response = Response()
+        response.name = request.user
+        response.email = request.POST["email"]
+        response.city = request.POST["city"]
+        response.experience = request.POST["experience"]
+        response.save()
+        return redirect('home')
     else:
-        form = ContactForm()
-    return render(request, "contact.html", {'form': form})
+        return render(request, "contact.html")

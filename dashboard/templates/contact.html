@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% block content %}
 <style>
   .container {
@@ -6,6 +7,10 @@
 }
 .new{
   margin-top:-7%;
+}
+.custom{
+  margin-left:10px !important;
+
 }
 form{
   margin-top:-25px;
@@ -17,8 +22,10 @@ form{
 textarea{
   height:20vh !important;
 }
-input, textarea{display:block;width:100%;height:calc(1.5em + .75rem + 2px);padding:.375rem .75rem;font-size:1rem;font-weight:400;line-height:1.5;color:#495057;background-color:#fff;background-clip:padding-box;border:1px solid #ced4da;border-radius:.25rem;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out}
-.lh-condensed { line-height: 1.25; }
+label{
+  margin:10px;
+}
+
 </style>
 
 <div class="container new">
@@ -59,13 +66,21 @@ input, textarea{display:block;width:100%;height:calc(1.5em + .75rem + 2px);paddi
       </ul>
     </div>
     <div class="col-md-8 order-md-1">
-    <form method="post">
+    <form method="post" action = "{% url 'contact' %}">
+      {% csrf_token %}
         <div class="col-md-6 mb-3">
-          {% csrf_token %}
-          {{ form.as_p }}
+          <label for="inputUserame">Userame</label>
+          <input type="text" id="inputUserame" class="form-control" placeholder="Your Name" name="username" required autofocus>
+            <label for="inputUserame">Email</label>
+          <input type="email" id="inputUserame" class="form-control" placeholder="Username" name="email" required autofocus>
 
+          <label for="preferredCity">Preferred City</label>
+          <input type="text" class="form-control" name="city" value="" placeholder="Eg: Jaipur">
+          <label for="inputUserame">Football Experience</label>
+          <textarea class="form-control" name="experience" rows="8" cols="80"></textarea>
+          <input clas type="checkbox" class="custom-control-input" id="customCheck1">
+          <label class="custom-control-label" for="customCheck1">I confirm that I identify as trans*</label>
       <div class="form-actions">
-        <label class="custom-control-label" for="same-address">I confirm that I identify as trans*.</label>
         <input type="checkbox" class="custom-control-input" id="same-address">
         <button type="submit" class="btn btn-primary">Send</button>
       </div>
@@ -74,6 +89,5 @@ input, textarea{display:block;width:100%;height:calc(1.5em + .75rem + 2px);paddi
     </form>
     </div>
   </div>
-  </div>
-
+</div>
 {% endblock %}
